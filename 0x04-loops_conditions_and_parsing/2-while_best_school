@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+#displaying Best School 10 * using while loop.
 count=0
 
 while [ $count -lt 10 ]
