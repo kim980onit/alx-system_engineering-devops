@@ -1,1 +1,9 @@
 https://imgur.com/a/mDDWTzs
+
+#Description:
+#This enhanced web infrastructure represents a significant advancement over its predecessor. It has been redesigned to eliminate Single Points of Failure (SPOFs), with each major component - the web server, application server, and database servers - now hosted on separate GNU/Linux servers. Unlike before, SSL protection is not terminated at the load balancer; instead, each server's network is fortified with individual firewalls, and comprehensive monitoring is in place.
+#Distinctive Features of This Infrastructure:
+#Implementation of a firewall between each server, enhancing security by shielding against unwanted and unauthorized access.
+#Shift from safeguarding a single server to protecting each server individually, bolstering overall system resilience.
+#Challenges Associated with This Infrastructure:
+#Elevated maintenance expenses: The decentralization of major components onto separate servers necessitates the acquisition of additional hardware. Consequently, the company's operational costs, including electricity consumption for both existing and new servers, would surge. Procurement of servers and covering the resultant increase in electricity expenditure would require allocation of funds from the company's budget.
