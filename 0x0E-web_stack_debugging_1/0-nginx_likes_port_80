@@ -1,5 +1,27 @@
-#!usr/bin/env bash
-# configures sever to listen on port 80 of all the sever's active IPv4 
+#!/usr/bin/env bash
+# Configure Nginx to listen on port 80 of all the server's active IPv4 IPs
 
-sudo sed -i "s/8080/80/" /etc/nginx/sites-enable/default
-sudo service nginx restart
+# Remove carriage return characters
+sed -i 's/\r$//' "$0"
+
+# Update Nginx configuration to listen on port 80
+sudo sed -i 's/listen 8080/listen 80/' /etc/nginx/sites-enabled/default
+
+# Serve a simple HTML page
+echo "<html><body><h1>Test Page</h1><p>This is a test page served by Nginx.</p></body></html>" | sudo tee /var/www/html/index.html
+
+# Restart Nginx service
+sudo systemctl restart nginx
+
+# Check Nginx status and response
+nginx_status=$(sudo systemctl is-active nginx)
+if [ "$nginx_status" = "active" ]; then
+    http_response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost)
+    if [ "$http_response" = "200" ]; then
+        echo "Nginx is running and serving web page with HTTP 200 on port 80."
+    else
+        echo "Nginx is running but not serving web page with HTTP 200 on port 80."
+    fi
+else
+    echo "Failed to start Nginx or it's not listening on port 80."
+fi
