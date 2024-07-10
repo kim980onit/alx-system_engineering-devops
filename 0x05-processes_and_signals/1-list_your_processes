@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 # displays a list of currently running processes
+echo "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND"
 ps -axuf
+
+echo ""
+echo "Process hierarchy:"
+pstree -p
