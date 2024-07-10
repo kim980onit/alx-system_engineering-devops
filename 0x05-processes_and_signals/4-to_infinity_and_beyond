@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-#A Bash script that displays a string infinitely
-
-while true
+# Displays To infinity and beyond indefinitely
+i=0
+while [ $i -eq 0 ]
 do
 	echo "To infinity and beyond"
 	sleep 2
