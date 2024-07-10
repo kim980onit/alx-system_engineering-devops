@@ -1,1 +1,1 @@
-0x02-shell redirections
+Shell I/O redirections task

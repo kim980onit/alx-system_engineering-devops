@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
+#This script is displaying "Best School" 10 times but display "hi"
+#on new line that follows line 9.
 
-count=0
-
-while [ $count -lt 10 ]
+i=0
+while (( "$i"<10 ))
 do
-  if [ $count -eq 9 ]
-  then
-    echo "Hi"
-  fi
-  echo "Best School"
-  (( count++ ))
-done
+	echo "Best School"
+	(( i += 1 ))
+	if (( "$i" == 9 ))
+	then
+		echo "Hi"
+	fi
+done 
