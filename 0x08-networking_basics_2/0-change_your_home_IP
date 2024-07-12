@@ -3,7 +3,24 @@
 #	localhost on Ubuntu server resolves to 127.0.0.2
 #	facebook.com on Ubuntu server resolves to 8.8.8.8
 
-cp /etc/hosts ~/host.new
-echo "127.0.0.2		localhost" > ~/hosts.new
-echo "8.8.8.8		facebook.com" >> ~/hosts.alternate
-cp -f ~/hosts.new /etc/hosts
+sudo cp /etc/hosts /etc/hosts.backup
+
+# Remove any existing entries for localhost and facebook.com
+sudo sed -i '/localhost/d' /etc/hosts
+sudo sed -i '/facebook.com/d' /etc/hosts
+
+# Add the new entries
+echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
+echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts
+
+# Display the updated /etc/hosts file
+echo "Updated /etc/hosts file:"
+cat /etc/hosts
+
+# Notify the user of the changes
+echo "localhost now resolves to 127.0.0.2"
+echo "facebook.com now resolves to 8.8.8.8"
+
+# Reminder to revert changes if necessary
+echo "Remember to revert localhost to 127.0.0.1 after testing!"
+
