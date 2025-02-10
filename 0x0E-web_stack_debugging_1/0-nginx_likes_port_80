@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Setting up server to curl port 80 with no issues
+# nginx port 80
 apt-get update -y
 apt-get install -y nginx
 sudo service nginc enable
