@@ -3,10 +3,10 @@
 subscribers for a given subreddit
 """
 
-from requests import get
-
+import requests
 
 def number_of_subscribers(subreddit):
+
     if not subreddit or not isinstance(subreddit, str):
         return 0
 
