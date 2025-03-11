@@ -35,6 +35,8 @@ def count_words(subreddit, word_list, instances=None, after=None):
         return count_words(subreddit, word_list, instances, after)
 
     if instances:
-        sorted_results = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
+        sorted_results = sorted(
+                instances.items(), key=lambda kv: (-kv[1], kv[0])
+                )
         for word, count in sorted_results:
             print(f"{word}: {count}")
